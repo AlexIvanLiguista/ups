@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h1>Registro de Nuevos Empleados</h1>
+                <form #empleadoForm="ngForm" (ngSubmit)="getEmpleados">
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ingrese su nombre" name="nombre"
+                    [(ngModel)]="empleadoService.selectedEmpleado.nombre">
+                    </div>
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ingrese su cargo" name="cargo"
+                    [(ngModel)]="empleadoService.selectedEmpleado.cargo">
+                    </div>
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ingrese su departamento"  name="departamento"
+                    [(ngModel)]="empleadoService.selectedEmpleado.departamento">
+                    </div>
+                    <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Ingrese su sueldo" name="sueldo"
+                    [(ngModel)]="empleadoService.selectedEmpleado.sueldo">
+                    </div>
+                    <button class="btn btn-primary" type="submit" >Crear</button>
+                    <button class="btn btn-secondary" (click)="getEmpleados">Eliminar</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
+                    <th>Departamento</th>
+                    <th>Sueldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empleado of empleadoService.empleados">
+                    <td>{{empleado.nombre}}</td>
+                    <td>{{empleado.cargo}}</td>
+                    <td>{{empleado.departamento}}</td>
+                    <td>{{empleado.sueldo}}</td>
+                    <td>
+                        <button class="btn btn-secondary">Actualizar</button>
+                        <button class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
