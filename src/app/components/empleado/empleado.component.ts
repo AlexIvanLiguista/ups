@@ -16,7 +16,7 @@ export class EmpleadoComponent implements OnInit {
 
 
   empleado: Empleado[] = [];
-
+//mas cambios
   
   public get empleadoServicePublic(): EmpleadoService {
     return this.empleadoService;
